@@ -8,6 +8,7 @@
  */
 export const WHATSAPP_NUMBER = '2349160231260'
 export const CONTACT_EMAIL = 'studio@by-bookey.com'
+export const LOGO_SRC = 'logo.svg'
 
 const WHATSAPP_MESSAGE = 'Hello By-Bookey - I would like to make an enquiry.'
 
@@ -28,5 +29,3 @@ export function buildWhatsAppLink(message = WHATSAPP_MESSAGE) {
 
 /** Primary WhatsApp URL — api.whatsapp.com works reliably on mobile and desktop. */
 export const WHATSAPP_LINK = buildWhatsAppLink()
-
-export const LOGO_SRC = 'logo.svg'
