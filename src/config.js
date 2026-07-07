@@ -4,10 +4,12 @@
  * WHATSAPP_NUMBER — international format, digits only (no "+", spaces or dashes).
  * Example: +234 916 023 1260 → 2349160231260
  *
- * CONTACT_EMAIL — mailto fallback when Netlify Forms are unavailable locally.
+ * CONTACT_EMAIL   — studio inbox for chatbot mailto fallback and footer display.
+ *                   On Netlify: Forms → chatbot-queries → Notifications →
+ *                   add this address to receive submitted queries by email.
  */
 export const WHATSAPP_NUMBER = '2349160231260'
-export const CONTACT_EMAIL = 'studio@by-bookey.com'
+export const CONTACT_EMAIL = 'bookey659@gmail.com'
 export const LOGO_SRC = 'logo.svg'
 
 const WHATSAPP_MESSAGE = 'Hello By-Bookey - I would like to make an enquiry.'
