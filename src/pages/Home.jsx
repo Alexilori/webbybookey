@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom'
 import Placeholder from '../components/Placeholder.jsx'
 import Reveal from '../components/Reveal.jsx'
+import { HOME_IMAGES } from '../data/homeImages.js'
 
 const CTA_CLASSES =
   'inline-block border border-ink bg-bone/80 px-10 py-3.5 text-[11px] tracking-[0.3em] uppercase text-ink backdrop-blur-sm transition-colors duration-300 hover:bg-ink hover:text-bone'
@@ -21,8 +22,13 @@ export default function Home() {
           Static placeholder for now; a muted, autoplaying, looping <video>
           with object-cover can replace <Placeholder> in this container. */}
       <section className="relative h-[calc(100svh-4rem)] w-full md:h-[calc(100svh-7.25rem)]">
-        {/* To embed the real campaign photo, add: src="images/hero.jpg" (file in public/images/) */}
-        <Placeholder full eager label="Hero — campaign, garment in motion" className="h-full" />
+        <Placeholder
+          full
+          eager
+          src={HOME_IMAGES.hero}
+          label="Hero — campaign, garment in motion"
+          className="h-full"
+        />
 
         {/* Soft scrim so the title and CTA stay legible over real photography */}
         <div className="pointer-events-none absolute inset-x-0 bottom-0 h-2/5 bg-gradient-to-t from-bone/90 via-bone/40 to-transparent" />
@@ -45,22 +51,24 @@ export default function Home() {
         {[
           {
             label: 'Campaign — Collection 01, full silhouette',
+            src: HOME_IMAGES.campaigns[0],
             title: 'Collection 01 — Meridian',
             to: '/work',
             cta: 'Discover More',
           },
           {
             label: 'Campaign — Raw Seam capsule, fabric macro',
+            src: HOME_IMAGES.campaigns[1],
             title: 'Capsule — Raw Seam',
             to: '/work',
             cta: 'Discover More',
           },
-        ].map(({ label, title, to, cta }) => (
+        ].map(({ label, src, title, to, cta }) => (
           <Reveal key={title} className="bg-bone">
             <Link to={to} className="group block">
               <div className="overflow-hidden">
                 <div className="transition-transform duration-500 ease-out group-hover:scale-[1.02]">
-                  <Placeholder ratio="4 / 5" label={label} />
+                  <Placeholder ratio="4 / 5" src={src} label={label} />
                 </div>
               </div>
               <div className="flex flex-col items-center gap-3 px-6 py-10 text-center">
@@ -94,7 +102,7 @@ export default function Home() {
               >
                 <div className="overflow-hidden">
                   <div className="transition-transform duration-500 ease-out group-hover:scale-[1.02]">
-                    <Placeholder ratio="3 / 4" label={look} />
+                    <Placeholder ratio="3 / 4" src={HOME_IMAGES.looks[index]} label={look} />
                   </div>
                 </div>
                 <p className="mt-4 text-center text-[10px] tracking-[0.25em] uppercase text-charcoal/70">
@@ -108,7 +116,11 @@ export default function Home() {
 
       {/* ——— Atelier banner ——— */}
       <section className="relative">
-        <Placeholder ratio="16 / 9" label="The Atelier — hands at the cutting table" />
+        <Placeholder
+          ratio="16 / 9"
+          src={HOME_IMAGES.atelier}
+          label="The Atelier — hands at the cutting table"
+        />
         <div className="absolute inset-0 flex flex-col items-center justify-center gap-6 text-center">
           <Reveal>
             <p className="text-[11px] tracking-[0.4em] uppercase text-charcoal">The Craft</p>
