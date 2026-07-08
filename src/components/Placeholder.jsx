@@ -35,7 +35,10 @@ export default function Placeholder({
     }
   })
 
-  const fromProp = src && !failed ? `${import.meta.env.BASE_URL}${src}` : null
+  const assetPath = src?.replace(/^\//, '')
+  const joined = assetPath ? `${import.meta.env.BASE_URL}${assetPath}` : null
+  // Root-absolute so images load on every route (not relative to /work, etc.)
+  const fromProp = joined && !failed ? (joined.startsWith('./') ? `/${assetPath}` : joined) : null
   const shown = fromProp || dropped
 
   const floatDelay = useMemo(() => {
