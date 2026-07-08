@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useMemo, useState } from 'react'
 
 /**
  * Image slot for the site's photography.
@@ -38,6 +38,14 @@ export default function Placeholder({
   const fromProp = src && !failed ? `${import.meta.env.BASE_URL}${src}` : null
   const shown = fromProp || dropped
 
+  const floatDelay = useMemo(() => {
+    let hash = 0
+    for (let i = 0; i < label.length; i += 1) {
+      hash = (hash + label.charCodeAt(i) * (i + 1)) % 120
+    }
+    return `${hash * 45}ms`
+  }, [label])
+
   const handleDrop = (event) => {
     event.preventDefault()
     setDragging(false)
@@ -69,12 +77,17 @@ export default function Placeholder({
   }
 
   return (
-    <figure className={className}>
+    <figure
+      className={`${full ? 'flex h-full flex-col p-4 sm:p-6 lg:p-8' : 'p-4 sm:p-5 md:p-6'} ${className}`}
+    >
       <div
-        className={`group/slot relative w-full overflow-hidden bg-linen transition-shadow duration-300 ${
+        className={`placeholder-float-frame group/slot relative w-full overflow-hidden bg-linen transition-shadow duration-300 ${
           dragging ? 'shadow-[inset_0_0_0_2px_var(--color-umber)]' : ''
-        }`}
-        style={full ? { height: '100%' } : { aspectRatio: ratio }}
+        } ${full ? 'min-h-0 flex-1' : ''}`}
+        style={{
+          ...(full ? { height: '100%' } : { aspectRatio: ratio }),
+          '--float-delay': floatDelay,
+        }}
         role={shown ? undefined : 'img'}
         aria-label={shown ? undefined : label}
         onDragOver={(event) => {

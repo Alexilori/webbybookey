@@ -59,3 +59,44 @@ body {
     transform: none;
   }
 }
+
+/* Floating placeholder frames — soft lift, shadow, gentle drift */
+.placeholder-float-frame {
+  box-shadow:
+    0 28px 56px -20px rgb(18 17 16 / 0.22),
+    0 10px 22px -14px rgb(18 17 16 / 0.1);
+  transition:
+    transform 500ms var(--ease-editorial),
+    box-shadow 500ms var(--ease-editorial);
+  animation: placeholder-float 2s var(--ease-editorial) infinite;
+  animation-delay: var(--float-delay, 0ms);
+  will-change: transform;
+}
+
+.placeholder-float-frame:hover {
+  transform: translateY(-8px);
+  box-shadow:
+    0 36px 68px -18px rgb(18 17 16 / 0.26),
+    0 14px 28px -12px rgb(18 17 16 / 0.12);
+}
+
+@keyframes placeholder-float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-12px);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .placeholder-float-frame {
+    animation: none;
+  }
+
+  .placeholder-float-frame:hover {
+    transform: none;
+  }
+}

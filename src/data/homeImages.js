@@ -1,18 +1,17 @@
 /**
- * Homepage photography — drop matching files into public/images/.
+ * Homepage photography — files live in public/picsbokky/.
  * Placeholder frames stay grey until the file exists; drag-and-drop still
  * works in the browser for quick previews during design.
  */
+export const PICS = {
+  anthhero: 'picsbokky/anthhero.jpg',
+  main: 'picsbokky/main.jpg',
+  orih: 'picsbokky/orih.jpg',
+}
+
 export const HOME_IMAGES = {
-  hero: 'images/hero.jpg',
-  campaigns: ['images/campaign-meridian.jpg', 'images/campaign-raw-seam.jpg'],
-  looks: [
-    'images/look-01.jpg',
-    'images/look-02.jpg',
-    'images/look-03.jpg',
-    'images/look-04.jpg',
-    'images/look-05.jpg',
-    'images/look-06.jpg',
-  ],
-  atelier: 'images/atelier.jpg',
+  hero: PICS.anthhero,
+  campaigns: [PICS.main, PICS.orih],
+  looks: [PICS.main, PICS.orih, PICS.anthhero, PICS.main, PICS.orih, PICS.anthhero],
+  atelier: PICS.main,
 }

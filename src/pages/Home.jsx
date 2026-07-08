@@ -21,7 +21,7 @@ export default function Home() {
       {/* ——— Campaign hero ———
           Static placeholder for now; a muted, autoplaying, looping <video>
           with object-cover can replace <Placeholder> in this container. */}
-      <section className="relative h-[calc(100svh-4rem)] w-full md:h-[calc(100svh-7.25rem)]">
+      <section className="relative h-[calc(100svh-4rem)] w-full overflow-visible md:h-[calc(100svh-7.25rem)]">
         <Placeholder
           full
           eager
@@ -66,11 +66,7 @@ export default function Home() {
         ].map(({ label, src, title, to, cta }) => (
           <Reveal key={title} className="bg-bone">
             <Link to={to} className="group block">
-              <div className="overflow-hidden">
-                <div className="transition-transform duration-500 ease-out group-hover:scale-[1.02]">
-                  <Placeholder ratio="4 / 5" src={src} label={label} />
-                </div>
-              </div>
+              <Placeholder ratio="4 / 5" src={src} label={label} />
               <div className="flex flex-col items-center gap-3 px-6 py-10 text-center">
                 <h2 className="font-serif text-2xl text-ink">{title}</h2>
                 <span className="text-[11px] tracking-[0.3em] uppercase text-ink underline underline-offset-8 transition-opacity duration-300 group-hover:opacity-60">
@@ -100,11 +96,7 @@ export default function Home() {
                 to="/work"
                 className="group w-[72%] shrink-0 snap-start sm:w-[42%] lg:w-[23%]"
               >
-                <div className="overflow-hidden">
-                  <div className="transition-transform duration-500 ease-out group-hover:scale-[1.02]">
-                    <Placeholder ratio="3 / 4" src={HOME_IMAGES.looks[index]} label={look} />
-                  </div>
-                </div>
+                <Placeholder ratio="3 / 4" src={HOME_IMAGES.looks[index]} label={look} />
                 <p className="mt-4 text-center text-[10px] tracking-[0.25em] uppercase text-charcoal/70">
                   Look {String(index + 1).padStart(2, '0')}
                 </p>
@@ -115,7 +107,7 @@ export default function Home() {
       </section>
 
       {/* ——— Atelier banner ——— */}
-      <section className="relative">
+      <section className="relative overflow-visible py-6 sm:py-8 lg:py-10">
         <Placeholder
           ratio="16 / 9"
           src={HOME_IMAGES.atelier}
