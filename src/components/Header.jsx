@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 import { Link, NavLink, useLocation } from 'react-router-dom'
-import logoSrc from '../assets/bookey_logo.svg'
+import { logoClassName, logoSrc } from '../brandLogo.js'
 import Logo from './Logo.jsx'
 import WhatsAppLink from './WhatsAppLink.jsx'
 
@@ -33,7 +33,7 @@ export default function Header() {
 
   return (
     <>
-      <header className="sticky top-0 z-50 border-b border-ink/10 bg-bone">
+      <header className="sticky top-0 z-50 overflow-hidden border-b border-ink/10 bg-bone">
         <div className="relative flex h-28 items-center justify-between px-5 sm:px-8 lg:h-32 lg:px-12">
           {/* Menu toggle */}
           <button
@@ -54,12 +54,12 @@ export default function Header() {
           <Link
             to="/"
             aria-label="By-Bookey — home"
-            className="absolute left-1/2 -translate-x-1/2 transition-opacity duration-300 hover:opacity-60"
+            className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 transition-opacity duration-300 hover:opacity-60"
           >
             <img
               src={logoSrc}
               alt="By-Bookey"
-              className="logo-breathe h-32 w-auto object-contain md:h-40"
+              className={logoClassName}
               draggable={false}
             />
           </Link>

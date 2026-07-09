@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
-import footerLogoSrc from '../assets/bookey_logo_footer.svg'
+import { logoClassName, logoSrc } from '../brandLogo.js'
 import { CONTACT_EMAIL } from '../config.js'
 import WhatsAppLink from './WhatsAppLink.jsx'
 
@@ -121,9 +121,9 @@ export default function Footer() {
       {/* Giant wordmark */}
       <div className="overflow-hidden px-6 pb-10">
         <img
-          src={footerLogoSrc}
+          src={logoSrc}
           alt="By-Bookey"
-          className="logo-breathe mx-auto w-2/3 object-contain md:w-1/2"
+          className={logoClassName}
           draggable={false}
         />
         <div className="mt-8 flex flex-col items-center justify-between gap-3 text-[10px] tracking-[0.25em] uppercase text-ash sm:flex-row">
