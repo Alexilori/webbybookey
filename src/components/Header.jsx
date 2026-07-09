@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 import { Link, NavLink, useLocation } from 'react-router-dom'
+import logoSrc from '../assets/bookey_logo.svg'
 import Logo from './Logo.jsx'
 import WhatsAppLink from './WhatsAppLink.jsx'
 
@@ -55,7 +56,12 @@ export default function Header() {
             aria-label="By-Bookey — home"
             className="absolute left-1/2 -translate-x-1/2 transition-opacity duration-300 hover:opacity-60"
           >
-            <Logo imgClassName="h-8 lg:h-10" textClassName="text-2xl tracking-[0.08em] lg:text-3xl" />
+            <img
+              src={logoSrc}
+              alt="By-Bookey"
+              className="h-9 w-auto object-contain sm:h-10 lg:h-14 xl:h-16"
+              draggable={false}
+            />
           </Link>
 
           {/* Client services */}
