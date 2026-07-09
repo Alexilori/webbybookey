@@ -34,7 +34,7 @@ export default function Header() {
   return (
     <>
       <header className="sticky top-0 z-50 border-b border-ink/10 bg-bone">
-        <div className="relative flex h-16 items-center justify-between px-5 sm:px-8 lg:h-20 lg:px-12">
+        <div className="relative flex h-28 items-center justify-between px-5 sm:px-8 lg:h-32 lg:px-12">
           {/* Menu toggle */}
           <button
             type="button"
@@ -59,7 +59,7 @@ export default function Header() {
             <img
               src={logoSrc}
               alt="By-Bookey"
-              className="h-9 w-auto object-contain sm:h-10 lg:h-14 xl:h-16"
+              className="logo-breathe h-32 w-auto object-contain md:h-40"
               draggable={false}
             />
           </Link>

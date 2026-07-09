@@ -100,3 +100,25 @@ body {
     transform: none;
   }
 }
+
+/* Header & footer wordmarks — gentle opacity pulse */
+.logo-breathe {
+  animation: logo-breathe 4s var(--ease-editorial) infinite;
+}
+
+@keyframes logo-breathe {
+  0%,
+  100% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0.5;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .logo-breathe {
+    animation: none;
+  }
+}
